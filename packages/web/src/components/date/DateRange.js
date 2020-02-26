@@ -237,6 +237,7 @@ class DateRange extends Component {
 			}
 		} else if (onChange) {
 			if (this.startDateRef.getInput().value.length === 10) {
+				this.handleDateChange({ start: date, end });
 				onChange({
 					start: date,
 					end,
@@ -278,6 +279,10 @@ class DateRange extends Component {
 			}
 		} else if (onChange) {
 			if (this.endDateRef.getInput().value.length === 10) {
+				this.handleDateChange({
+					start: currentDate ? currentDate.start : '',
+					end: selectedDay,
+				});
 				onChange({
 					start,
 					end: selectedDay,
